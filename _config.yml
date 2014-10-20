@@ -5,6 +5,11 @@ description: "World's finest Pokemon clone!"
 baseurl: ""
 twitter_username: gtalent2
 github_username:  gtalent
+users: {
+	gtalent: {
+		name: "Gary Talent"
+	}
+}
 
 # Build settings
 markdown: kramdown
