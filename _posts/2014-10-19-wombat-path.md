@@ -6,6 +6,8 @@ date:   2014-10-19
 categories: devlog
 ---
 
+In this post, we will cover a crucial element of *wombat*'s desgin, the Wombat Path. The path is a core idea behind how *wombat* handles its game data and game save data. The path has a very simple design with a short description, but no one can understand the inner-workings of *wombat* without understanding this construct.
+
 ### The Problem
 Like any piece of software that wants to preserve some state data for the next time it runs, *wombat* needs to be able to store and retrieve certain data it cares about accessing later. For *wombat*, this includes things like game saves, creature definitions, world layout, and a good deal more. Different software will do this in different ways, but *wombat* does this by represent serializing data structures to the disk in a more or less one to one format.
 
