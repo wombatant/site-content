@@ -2,7 +2,7 @@
 layout: post
 title:  "Wombat Path"
 author: gtalent
-date:   2014-10-19
+date:   2014-10-20
 categories: devlog
 ---
 
@@ -24,7 +24,7 @@ A typical configuration will have two directories in the path:
 
 When *wombat* seeks a file, it will first check the game save directory, and then the static files directory. Then, when *wombat* goes to write data out, it will only ever write to the last directory in the list, namely the game save directory. This gives an abstract picture of a unified collection of files without redundancies.
 
-### Updating
-As noted earlier, this model also has an advantages in updating static files. Say for example we have a region in game called *Lake Grundie*, which also happens to be where the user was when they last exited the game. We want the user to find the current region the same as it was when they exited the game, so we save a copy of the modified version of the region in the game save directory, and then that will get deleted when the user exits that region. Now, let's also say that *Lake Grundie* happens to have received an update since the user last exited the game, and that update gets applied to the version in the static files directory. So now, when the user comes back, the old verion in the game save directory will get loaded to allow the user to pick up where they left off, but once the user leaves the region and comes back, they will appear in the new one.
+### Updating and Moddding
+As noted earlier, this model also has an advantages in updating static files. Say for example we have a region in game called *Lake Grundie*, which also happens to be where the user was when they last exited the game. We want the user to find the current region the same as it was when they exited the game, so we save a copy of the modified version of the region in the game save directory, and then that will get deleted when the user exits that region. Now, let's also say that *Lake Grundie* happens to have received an update since the user last exited the game, and that update gets applied to the version in the static files directory. So now, when the user comes back, the old version in the game save directory will get loaded to allow the user to pick up where they left off, but once the user leaves the region and comes back, they will appear in the new one.
 
-Of course this does not eliminate all problems. If the old version of the region exited to a region that no longer exits, of course that would cause problem, but changes to existing regions need not be lost just because they received an update.
+Of course this does not eliminate all problems. If the old version of the region exited to a region that no longer exits, of course that would cause problem, but changes to existing regions need not be lost just because they received an update. Finally, by adding a middle directory to the path, we have a place to install mods. This middle directory provides a second static files directory place to install mods, without having to overwrite the vanilla content.
