@@ -3,7 +3,7 @@ layout: post
 title:  "Wombat Path"
 author: gtalent
 date:   2014-10-20
-categories: devlog
+categories: wombat
 ---
 
 In this post, we will cover a crucial element of *wombat*'s desgin, the Wombat Path.

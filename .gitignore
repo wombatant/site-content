@@ -1,3 +1,4 @@
 .bundle
+site.tar
 vendor
 Gemfile.lock

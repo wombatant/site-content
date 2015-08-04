@@ -3,7 +3,7 @@ layout: post
 title:  "Metal Claw"
 author: gtalent
 date:   2014-10-19
-categories: devlog
+categories: wombat
 ---
 
 In *wombat*, stored representations of data tend to take the form of one to one mappings to serialized data structures.
