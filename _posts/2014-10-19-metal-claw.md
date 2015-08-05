@@ -77,17 +77,17 @@ As demonstrated above, the usefulness of field name elimination in isolation is 
 To combat the bloat that often comes with the absence of the field names, we can use field presence masks.
 
 With a field presence mask, we can eliminate the default values listed here.
-The mask to describe our example data would be the following in binary, 11100000, or 225 in decimal.
+The mask to describe our example data would be the following in binary, 11100000, or 224 in decimal.
 With the addition of the field presence mask, the data now now only needs 25 bytes.
 {% highlight go %}
-{225, 25, "A string", true}
+{224, 25, "A string", true}
 {% endhighlight %}
 
 The presence mask actually provides further size reduction with bools.
 Bools only have 2 possible values, just as each bit in the presence mask, and so the presence bit can actually contain the data of the bool, thus making the bool redundant.
 With this in mind, our example data is now reduced to 19 bytes.
 {% highlight go %}
-{225, 25, "A string"}
+{224, 25, "A string"}
 {% endhighlight %}
 
 ### Variable Length Binary Integers
@@ -109,7 +109,7 @@ From here on out, we will use the use the following notation to denote a variabl
 Using variable length integers, we can reduce our current example data to 16 bytes.
 
 {% highlight go %}
-{<225>, (25), "A string"}
+{<224>, (25), "A string"}
 {% endhighlight %}
 
 ### Eliminate Delimiter Characters
@@ -119,7 +119,7 @@ Also like field names, the delimiter characters are unnecessary if we already kn
 With this change, our example data has been reduced to 12 bytes.
 
 {% highlight go %}
-<225>(25)"A string"
+<224>(25)"A string"
 {% endhighlight %}
 
 A further change that will allow for much faster string parsing is to replace string beginning and ending delimiters with the length of the string.
@@ -127,7 +127,7 @@ In many cases this will reduce the size of the string by 1 byte, but it can end 
 In the case of our sample data, this reduces it to 11 bytes.
 
 {% highlight go %}
-<225>(25)(8)A string
+<224>(25)(8)A string
 {% endhighlight %}
 
 ### Conclusion
